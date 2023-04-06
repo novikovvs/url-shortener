@@ -10,7 +10,8 @@ export default {
         shorten() {
             axios.post('/api/shortener/', {
                 url: this.link
-            }).then((r) => this.shortenedLink = r.data)
+            })
+                .then((r) => this.shortenedLink = r.data)
                 .catch((error) => alert(error.response.data.message))
         }
     }

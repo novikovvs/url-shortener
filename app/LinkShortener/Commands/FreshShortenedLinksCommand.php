@@ -46,7 +46,7 @@ class FreshShortenedLinksCommand extends Command
             try {
                 $this->queries->deleteByTokens($tokens);
             } catch (\Exception $exception) {
-                Log::log('single', $message = $exception->getMessage());
+                Log::error($message = $exception->getMessage());
                 $this->output->error('Ошибка:' . $message);
             }
         }

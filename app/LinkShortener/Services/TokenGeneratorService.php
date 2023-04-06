@@ -8,8 +8,6 @@ use Illuminate\Support\Str;
 
 class TokenGeneratorService
 {
-    private const GENERATE_TOKEN_TRIES = 10;
-
     public function __construct(
         public readonly ShortenedLinksQueries $queries
     ) {
@@ -17,9 +15,9 @@ class TokenGeneratorService
 
     public function tryGenerateToken(): string
     {
-        $triesCounter = self::GENERATE_TOKEN_TRIES;
+        $triesCounter = config('shortener.generate_tries');
         do {
-            $token = Str::random(6);
+            $token = Str::random(config('shortener.token_length'));
         } while ($this->queries->isTokenExists($token) || !--$triesCounter);
 
         if (!$triesCounter) {
