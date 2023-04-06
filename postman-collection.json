@@ -1,0 +1,36 @@
+{
+	"info": {
+		"_postman_id": "a6f8e476-0181-4c76-bb2d-99eda33a68be",
+		"name": "Shortener",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23865388"
+	},
+	"item": [
+		{
+			"name": "Shorten url",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/shortener/?url=http://localhost/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"shortener",
+						""
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "http://localhost/"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
